@@ -6,6 +6,7 @@ import SignInPage from './pages/signin/SignInPage';
 import SignUpPage from './pages/signup/SignUpPage';
 import TasksPage from './pages/tasks/TasksPage';
 import CreateTaskPage from './pages/create-task/CreateTaskPage';
+import CreateFoodPage from './pages/create-food/CreateFoodPage';
 
 @inject('routerStore')
 @observer
@@ -18,6 +19,7 @@ class App extends Component {
         <Route path="/signup/" component={SignUpPage} />
         <Route exact path="/tasks" component={TasksPage} />
         <Route exact path="/tasks/create" component={CreateTaskPage} />
+        <Route exact path="/foods/create" component={CreateFoodPage} />
       </Fragment>
     );
   }

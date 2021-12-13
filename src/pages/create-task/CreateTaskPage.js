@@ -26,7 +26,7 @@ class CreateTaskPage extends Component {
     super(props);
 
     this.state = {
-      name: '',
+      title: '',
       description: '',
       errorMessage: null,
     };
@@ -34,10 +34,10 @@ class CreateTaskPage extends Component {
 
   handleSubmitTask = async () => {
     const { tasksStore } = this.props;
-    const { name, description } = this.state;
+    const { title, description } = this.state;
 
     try {
-      await tasksStore.createTask(name, description);
+      await tasksStore.createTask(title, description);
       window.location.hash = '/tasks';
     } catch (error) {
       const errorMessage = error.response.data.message;
@@ -56,11 +56,11 @@ class CreateTaskPage extends Component {
 
           <FormControl fullWidth>
             <TextField
-              label="Name"
-              placeholder="Name"
+              label="Tittle"
+              placeholder="Tittle"
               margin="normal"
               variant="outlined"
-              onChange={e => this.setState({ name: e.target.value })}
+              onChange={e => this.setState({ title: e.target.value })}
             />
           </FormControl>
           <FormControl fullWidth>

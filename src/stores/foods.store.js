@@ -17,19 +17,23 @@ export default class FoodsStore {
     const result = await this.foodsService.fetchFoods();
 
     if (result) {
-      this.tasks = result.data;
+      this.foods = result.data;
     }
   }
 
   @action
   async createFood(name, description, origin) {
-    const result = await this.taskService.createFood(name, description, origin);
+    const result = await this.foodsService.createFood(name, description, origin);
+
+    if (result) {
+      this.foods.push(result.data);
+    }
   }
 
   @action
   async updateFood(id, name, description, origin) {
     const food = this.foods.find(food => food.id === id);
-    await this.tasksService.updateTaskStatus(id, name, description, origin);
+    await this.foodsService.updateFood(id, name, description, origin);
     food.name = name;
     food.description = description;
     food.origin = origin;
