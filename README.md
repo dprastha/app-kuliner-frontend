@@ -1,3 +1,3 @@
-# Task Management Application Front-end
+# App Kuliner Front-end
 
-This application acts as the front-end for the Task Management application developed throughout the *NestJS - Zero to Hero* course, produced by Ariel Weinberger.
+This application acts as the front-end for the [App Kuliner](https://github.com/dprastha/app-kuliner-nestjs), forked from [Ariel Weinberger](https://github.com/arielweinberger/task-management-frontend).

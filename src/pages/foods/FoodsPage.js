@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import { Fab, IconButton } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import SignOutIcon from '@material-ui/icons/ExitToApp'
+import SignOutIcon from '@material-ui/icons/ExitToApp';
 import styled from 'styled-components';
-import Task from '../../components/Task';
-import TasksFilters from '../../components/TasksFilters';
+import Food from '../../components/Food';
 
-const TasksWrapper = styled.div`
+const FoodsWrapper = styled.div`
   width: 100%;
   max-width: 860px;
   margin: auto;
@@ -15,7 +14,7 @@ const TasksWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-const TasksHeader = styled.div`
+const FoodsHeader = styled.div`
   display: flex;
   justify-content: center;
   border-bottom: 3px solid #757c87;
@@ -33,11 +32,11 @@ const CreateButtonContainer = styled.div`
   align-items: center;
 `;
 
-const TasksContainer = styled.div`
+const FoodsContainer = styled.div`
   padding-top: 20px;
 `;
 
-const EmptyTasksPlaceholder = styled.p`
+const EmptyFoodsPlaceholder = styled.p`
   color: #edf4ff;
   text-align: center;
   font-size: 22px;
@@ -51,51 +50,51 @@ const SignOutIconContainer = styled.div`
   }
 `;
 
-@inject('tasksStore', 'routerStore', 'userStore')
+@inject('foodsStore', 'routerStore', 'userStore')
 @observer
-class TasksPage extends Component {
+class FoodsPage extends Component {
   componentDidMount() {
-    this.props.tasksStore.fetchTasks();
+    this.props.foodsStore.fetchFoods();
   }
-  
+
   handleSignOut = () => {
-    const { userStore, tasksStore } = this.props;
+    const { userStore, foodsStore } = this.props;
     userStore.signout();
-    tasksStore.resetTasks();
+    foodsStore.resetFoods();
     window.location.hash = '/signin';
   };
 
-  renderTasks = () => {
-    const { tasksStore } = this.props;
+  renderFoods = () => {
+    const { foodsStore } = this.props;
 
-    if (!tasksStore.tasks.length) {
-      return <EmptyTasksPlaceholder>No tasks available. Create one?</EmptyTasksPlaceholder>
+    if (!foodsStore.foods.length) {
+      return <EmptyFoodsPlaceholder>No foods available. Create one?</EmptyFoodsPlaceholder>;
     }
 
-    return tasksStore.tasks.map(task => (
-      <Task
-        key={task.id}
-        id={task.id}
-        title={task.title}
-        description={task.description}
-        status={task.status}
+    return foodsStore.foods.map(food => (
+      <Food
+        key={food.id}
+        id={food.id}
+        title={food.name}
+        description={food.description}
+        status={food.status}
       />
     ));
   };
 
   render() {
     return (
-      <TasksWrapper>
-        <TasksHeader>
-          <Title>Get things done.</Title>
+      <FoodsWrapper>
+        <FoodsHeader>
+          <Title>Food list.</Title>
 
           <CreateButtonContainer>
             <Fab
               variant="extended"
-              onClick={() => { window.location.hash = '/tasks/create'; }}
+              onClick={() => { window.location.hash = '/foods/create'; }}
             >
               <AddIcon />
-              Create Task
+              Create Food
             </Fab>
 
             <SignOutIconContainer>
@@ -104,16 +103,14 @@ class TasksPage extends Component {
               </IconButton>
             </SignOutIconContainer>
           </CreateButtonContainer>
-        </TasksHeader>
+        </FoodsHeader>
 
-        <TasksFilters />
-
-        <TasksContainer>
-          {this.renderTasks()}
-        </TasksContainer>
-      </TasksWrapper>
+        <FoodsContainer>
+          {this.renderFoods()}
+        </FoodsContainer>
+      </FoodsWrapper>
     );
   }
 }
 
-export default TasksPage;
+export default FoodsPage;

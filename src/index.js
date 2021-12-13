@@ -8,11 +8,10 @@ import { HashRouter } from 'react-router-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import TasksService from './services/tasks.service';
-import TasksStore from './stores/tasks.store';
 import UserStore from './stores/user.store';
 import AuthService from './services/auth.service';
-
+import FoodsService from './services/foods.service';
+import FoodsStore from './stores/foods.store';
 
 const services = {};
 const stores = {};
@@ -21,11 +20,11 @@ stores.routerStore = new RouterStore();
 const browserHistory = createBrowserHistory();
 const history = syncHistoryWithStore(browserHistory, stores.routerStore);
 
-services.tasksService = new TasksService(stores.routerStore);
 services.authService = new AuthService();
+services.FoodsService = new FoodsService(stores.routerStore);
 
-stores.tasksStore = new TasksStore(services.tasksService);
 stores.userStore = new UserStore(services.authService);
+stores.foodsStore = new FoodsStore(services.FoodsService);
 
 const Root = (
   <Provider {...stores}>
