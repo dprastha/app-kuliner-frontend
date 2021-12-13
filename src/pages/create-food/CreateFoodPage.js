@@ -35,7 +35,7 @@ class CreateFoodPage extends Component {
 
   handleSubmitFood = async () => {
     const { foodsStore } = this.props;
-    const { name, description, origin } = this.state;
+    const { name, description } = this.state;
 
     try {
       await foodsStore.createFood(name, description);
