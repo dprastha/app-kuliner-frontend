@@ -52,7 +52,7 @@ class SignUpPage extends Component {
       <div className="fullscreen-wrapper">
         <FormContainer>
           <Heading>Join us!</Heading>
-          <p>Start managing tasks easily.</p>
+          <p>Start managing foods easily.</p>
 
           {errorMessage && <ErrorMessage message={this.state.errorMessage} />}
 
@@ -78,7 +78,7 @@ class SignUpPage extends Component {
           <p>
             Passwords must contain at least 1 upper case letter, 1 lower case letter and one number OR special charracter.
           </p>
-          <hr/>
+          <hr />
           <div>
             <Button
               fullWidth
