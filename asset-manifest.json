@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "https://dprastha.github.io/app-kuliner-frontend/static/css/main.7612875f.chunk.css",
+    "main.js": "https://dprastha.github.io/app-kuliner-frontend/static/js/main.4fd0e9a5.chunk.js",
+    "main.js.map": "https://dprastha.github.io/app-kuliner-frontend/static/js/main.4fd0e9a5.chunk.js.map",
+    "runtime~main.js": "https://dprastha.github.io/app-kuliner-frontend/static/js/runtime~main.d2e2d797.js",
+    "runtime~main.js.map": "https://dprastha.github.io/app-kuliner-frontend/static/js/runtime~main.d2e2d797.js.map",
+    "static/js/2.b1059f2c.chunk.js": "https://dprastha.github.io/app-kuliner-frontend/static/js/2.b1059f2c.chunk.js",
+    "static/js/2.b1059f2c.chunk.js.map": "https://dprastha.github.io/app-kuliner-frontend/static/js/2.b1059f2c.chunk.js.map",
+    "index.html": "https://dprastha.github.io/app-kuliner-frontend/index.html",
+    "precache-manifest.78ba3c56577cd8b6540a48041c474f30.js": "https://dprastha.github.io/app-kuliner-frontend/precache-manifest.78ba3c56577cd8b6540a48041c474f30.js",
+    "service-worker.js": "https://dprastha.github.io/app-kuliner-frontend/service-worker.js",
+    "static/css/main.7612875f.chunk.css.map": "https://dprastha.github.io/app-kuliner-frontend/static/css/main.7612875f.chunk.css.map"
+  }
+}
